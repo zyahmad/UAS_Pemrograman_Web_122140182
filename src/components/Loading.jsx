@@ -1,12 +1,15 @@
-import React from 'react';
+import React from "react";
 
-const Loading = () => {
+import loadingImage from "../assets/images/loading.svg";
+
+function Loading() {
   return (
-    <div className="loading-container">
-      <div className="loading-spinner"></div>
-      <p>Loading...</p>
-    </div>
+    <section className="min-h-[80vh] flex items-center justify-center flex-col">
+      <div>
+        <img src={loadingImage} alt="" />
+      </div>
+    </section>
   );
-};
+}
 
 export default Loading;
