@@ -1,0 +1,7 @@
+pyramid
+SQLAlchemy
+psycopg2-binary
+alembic
+python-dotenv
+waitress
+bcrypt

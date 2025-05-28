@@ -18,11 +18,11 @@ class Footer extends Component {
               <Link to="/">
                 <div className="font-extrabold flex flex-row gap-2">
                   <img src={logo} alt="logo" width="30px" />{" "}
-                  <h1 className="text-xl text-black">jokopi.</h1>
+                  <h1 className="text-xl text-black">Abata Coffe</h1>
                 </div>
               </Link>
               <div className="md:w-96">
-                jokopi is a store that sells some good meals, and especially
+                Abata Coffe is a store that sells some good meals, and especially
                 coffee. We provide high quality beans
               </div>
               <div className="flex flex-row gap-5">

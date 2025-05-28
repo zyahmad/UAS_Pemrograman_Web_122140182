@@ -62,31 +62,39 @@ const Register = () => {
     if (valid.email == "" && valid.password == "" && valid.phoneNumber == "") {
       setIsLoading(true);
       e.target.disabled = true;
-      toast.promise(
-        register(form.email, form.password, form.phoneNumber, controller).then(
-          (res) => {
-            e.target.disabled = false;
-            setIsLoading(false);
-            return res.data.msg;
-          }
-        ),
-        {
-          loading: "Please wait a moment",
-          success: () => {
-            navigate("/auth/login", {
-              replace: true,
-            });
-            return "Register successful! You can login now";
-          },
-          error: ({ response }) => {
-            setIsLoading(false);
-            e.target.disabled = false;
+          toast.promise(
+            register(form.email, form.password, form.phoneNumber, controller).then(
+              (res) => {
+                e.target.disabled = false;
+                setIsLoading(false);
+                localStorage.setItem(
+                  "registeredUser",
+                  JSON.stringify({
+                    email: form.email,
+                    password: form.password,
+                    phoneNumber: form.phoneNumber,
+                  })
+                );
+                return res.data.msg;
+              }
+            ),
+            {
+              loading: "Please wait a moment",
+              success: () => {
+                navigate("/auth/login", {
+                  replace: true,
+                });
+                return "Register successful! You can login now";
+              },
+              error: ({ response }) => {
+                setIsLoading(false);
+                e.target.disabled = false;
 
-            return response.data.msg;
-          },
-        },
-        { success: { duration: Infinity }, error: { duration: Infinity } }
-      );
+                return response.data.msg;
+              },
+            },
+            { success: { duration: Infinity }, error: { duration: Infinity } }
+          );
     }
   }
 
